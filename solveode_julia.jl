@@ -1,5 +1,5 @@
+using BenchmarkTools
 using DifferentialEquations
-using Printf
 
 function main()
     x1 = 0.00001
@@ -22,5 +22,4 @@ function equation!(du, u, p, t)
     du[2] = u[1] * sqrt(u[1] / t)
 end
 
-@time y = main()
-@printf("y[1] = %.14f, y[2] = %.14f", y[1], y[2])
+@btime main()
